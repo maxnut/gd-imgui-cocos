@@ -99,6 +99,8 @@ void ImGuiCocos::reload() {
 
 void ImGuiCocos::reloadFontTexture()
 {
+	auto& io = ImGui::GetIO();
+	
 	delete m_fontTexture;
 
 	unsigned char* pixels;
