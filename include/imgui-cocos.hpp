@@ -45,6 +45,9 @@ public:
 	// used to reinitialize imgui context
 	void reload();
 
+	// used to add fonts at runtime
+	void reloadFontTexture()
+
 	void toggle();
 	bool isVisible();
 	void setVisible(bool v);

@@ -97,6 +97,20 @@ void ImGuiCocos::reload() {
 	m_reloading = true;
 }
 
+void ImGuiCocos::reloadFontTexture()
+{
+	delete m_fontTexture;
+
+	unsigned char* pixels;
+	int width, height;
+	io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
+
+	m_fontTexture = new CCTexture2D;
+	m_fontTexture->initWithData(pixels, kCCTexture2DPixelFormat_RGBA8888, width, height, CCSize(static_cast<float>(width), static_cast<float>(height)));
+
+	io.Fonts->SetTexID(reinterpret_cast<ImTextureID>(static_cast<std::uintptr_t>(m_fontTexture->getName())));
+}
+
 #ifndef GEODE_IS_MACOS
 
 float ImGuiCocos::retinaFactor() {
