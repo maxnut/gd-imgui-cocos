@@ -46,7 +46,7 @@ public:
 	void reload();
 
 	// used to add fonts at runtime
-	void reloadFontTexture()
+	void reloadFontTexture();
 
 	void toggle();
 	bool isVisible();
